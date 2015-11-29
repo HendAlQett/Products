@@ -2,11 +2,123 @@
 <items version="2" >
 
     <item
-        jar="/Users/hend/Documents/Android Projects/Tasks/Products/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
+        jar="/Users/hend/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/d5d13ea991eab0252e3710e5df3d6a9d4b21d461/butterknife-7.0.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/butterknife-7.0.1-1b91115bfffe0b21d2ae76f27e7db4e98c52160a.jar" />
+    </item>
+    <item
+        jar="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="1821601ddbec5ff125653097812823388700af74">
-        <dex dex="/Users/hend/Documents/Android Projects/Tasks/Products/app/build/intermediates/pre-dexed/debug/classes-91011f18786e93b74559ccb51ee70c012c565a44.jar" />
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/classes-c7b12323de5639cadb464c9258f75f52cfb4cd5e.jar" />
+    </item>
+    <item
+        jar="/Users/hend/.gradle/caches/modules-2/files-2.1/com.squareup/otto/1.3.8/cf615176cd1177edf71d3c9605f8dc148fede6be/otto-1.3.8.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="cf615176cd1177edf71d3c9605f8dc148fede6be">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/otto-1.3.8-9269ac2f4a32a41dd1262ad40cb45fca0ad43b97.jar" />
+    </item>
+    <item
+        jar="/Users/hend/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/gson-2.3.1-8e4ecd2a92cd9b7e5f8c62f97ae7ae91e7388a02.jar" />
+    </item>
+    <item
+        jar="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-a4b81cfa502a4caff7c7c69b590db01d0cbf1225.jar" />
+    </item>
+    <item
+        jar="/Users/hend/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-urlconnection/2.0.0/afe8399d352713b66e597e9670c741d1e60ae923/okhttp-urlconnection-2.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="afe8399d352713b66e597e9670c741d1e60ae923">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-2.0.0-2b67788edf941d4704c7398dc3cef712dacf9e4f.jar" />
+    </item>
+    <item
+        jar="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="11842de6a309c447b3a3d60d73ad637a87c58994">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/classes-a691026a3304689fc66c529730a99bdc3786f3cf.jar" />
+    </item>
+    <item
+        jar="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c6d79137693d494dee16372d3921f919eb724ced">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/classes-ea671b748675e625b6004f25edf422cd3ba2c50a.jar" />
+    </item>
+    <item
+        jar="/Users/hend/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/retrofit-1.9.0-0432aed8055f07e446718233696cb9234f838d40.jar" />
+    </item>
+    <item
+        jar="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/classes-87a23e414e703029cf8213b6734df0c2ac972e88.jar" />
+    </item>
+    <item
+        jar="/Users/hend/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-2654b3c111be0016e5d9c76eb74371c9cfe58a5e.jar" />
+    </item>
+    <item
+        jar="/Users/hend/.gradle/caches/modules-2/files-2.1/net.simonvt.schematic/schematic-annotations/0.6.3/4df5a4bbbacf9ea3c4aebf7d3c61465afb648e36/schematic-annotations-0.6.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4df5a4bbbacf9ea3c4aebf7d3c61465afb648e36">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/schematic-annotations-0.6.3-c1b2d073cfed995377b103eed13dbebd675c5dd4.jar" />
+    </item>
+    <item
+        jar="/Users/hend/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.0.0/4c8d1536dba3812cc1592090dc20c47a4ed3c35e/okhttp-2.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4c8d1536dba3812cc1592090dc20c47a4ed3c35e">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/okhttp-2.0.0-8a26f0ed7883aeead4a0c2e74bf000d31cba22bc.jar" />
+    </item>
+    <item
+        jar="/Users/hend/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.0.1/39eff75ddcb987ff65888361a29f489c178429a3/okio-1.0.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="39eff75ddcb987ff65888361a29f489c178429a3">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/okio-1.0.1-ad7ec48d429f4ce6dab2a62c372311a2021cd51a.jar" />
+    </item>
+    <item
+        jar="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/exploded-aar/net.simonvt.schematic/schematic/0.6.3/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f6f5730f19d22f177096c8d134d4892b0fbd631d">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/classes-42b438e4dbdaf96086fd14f036fed85a5c6826e6.jar" />
+    </item>
+    <item
+        jar="/Users/hend/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-4708c5455e2bbc24591cb3ec8e45400fc78d7fd8.jar" />
+    </item>
+    <item
+        jar="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="/Users/hend/Documents/Android Projects/Udacity Nanodegree/Git Repos/Products/app/build/intermediates/pre-dexed/debug/classes-542f7419091e7fe13e82cc1de009c128d669a113.jar" />
     </item>
 
 </items>
