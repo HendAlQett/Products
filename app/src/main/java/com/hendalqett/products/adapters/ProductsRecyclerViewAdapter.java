@@ -95,8 +95,6 @@ public class ProductsRecyclerViewAdapter extends RecyclerView.Adapter<ProductsRe
         mPicasso.load(productItem.getImage().getUrl()).placeholder(R.mipmap.ic_launcher).into(holder.ivProduct);
 
         if (position == getItemCount() - 1 && !isOffline) {
-
-            Log.d("Call", "Adapter " + startingProductId);
             startingProductId = numberOfProductsPerRequest + startingProductId;
             getMethods.updateProducts(this, productsList, numberOfProductsPerRequest, startingProductId);
         }
