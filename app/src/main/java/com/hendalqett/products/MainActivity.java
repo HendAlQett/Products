@@ -11,7 +11,6 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 import com.hendalqett.products.adapters.ProductsRecyclerViewAdapter;
-import com.hendalqett.products.constants.Keys;
 import com.hendalqett.products.data.ProductColumns;
 import com.hendalqett.products.data.ProductProvider;
 import com.hendalqett.products.models.Image;
@@ -144,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(View view, int position) {
                 isLeavingActivity = true;
                 Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
-                intent.putExtra(Keys.PRODUCT, productsList.get(position));
+                intent.putExtra(getString(R.string.product_key), productsList.get(position));
                 startActivity(intent);
             }
         });
