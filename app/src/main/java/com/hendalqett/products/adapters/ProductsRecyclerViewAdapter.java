@@ -27,15 +27,15 @@ public class ProductsRecyclerViewAdapter extends RecyclerView.Adapter<ProductsRe
 
     Context mContext;
     ArrayList<Product> productsList;
-    int numberOfProductsPerRequest = 10;
-    int startingProductId = 0;
+    int numberOfProductsPerRequest;
+    int startingProductId;
     OnItemClickListener mItemClickListener;
-    boolean isOffline=false;
+    boolean isOffline = false;
 
     GetMethods getMethods;
 
 
-    public class ProductsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ProductsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView tvProductDescription;
         TextView tvPrice;
@@ -49,6 +49,7 @@ public class ProductsRecyclerViewAdapter extends RecyclerView.Adapter<ProductsRe
             ivProduct = (ImageView) itemView.findViewById(R.id.ivProduct);
             itemView.setOnClickListener(this);
         }
+
         @Override
         public void onClick(View v) {
             if (mItemClickListener != null) {
@@ -59,17 +60,17 @@ public class ProductsRecyclerViewAdapter extends RecyclerView.Adapter<ProductsRe
     }
 
 
-    public ProductsRecyclerViewAdapter(Context mContext, ArrayList<Product> productsList,  int numberOfProductsPerRequest , int startingProductId ) {
+    public ProductsRecyclerViewAdapter(Context mContext, ArrayList<Product> productsList, int numberOfProductsPerRequest, int startingProductId) {
         this.mContext = mContext;
         this.productsList = productsList;
-        this.numberOfProductsPerRequest= numberOfProductsPerRequest;
-        this.startingProductId=startingProductId;
-        getMethods= new GetMethods();
+        this.numberOfProductsPerRequest = numberOfProductsPerRequest;
+        this.startingProductId = startingProductId;
+        getMethods = new GetMethods();
     }
 
 
     public interface OnItemClickListener {
-         void onItemClick(View view , int position);
+        void onItemClick(View view, int position);
     }
 
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
@@ -79,8 +80,8 @@ public class ProductsRecyclerViewAdapter extends RecyclerView.Adapter<ProductsRe
 
     @Override
     public ProductsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_product_item, parent, false);
-        ProductsViewHolder productsViewHolder = new ProductsViewHolder(v);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_product_item, parent, false);
+        ProductsViewHolder productsViewHolder = new ProductsViewHolder(view);
         return productsViewHolder;
     }
 
@@ -89,24 +90,24 @@ public class ProductsRecyclerViewAdapter extends RecyclerView.Adapter<ProductsRe
 
         Product productItem = productsList.get(position);
         holder.tvProductDescription.setText(productItem.getProductDescription());
-        holder.tvPrice.setText(mContext.getString(R.string.price,productItem.getPrice()));
+        holder.tvPrice.setText(mContext.getString(R.string.price, productItem.getPrice()));
         Picasso mPicasso = Picasso.with(mContext);
         mPicasso.load(productItem.getImage().getUrl()).placeholder(R.mipmap.ic_launcher).into(holder.ivProduct);
 
-        if(position==getItemCount()-1 &&!isOffline){
+        if (position == getItemCount() - 1 && !isOffline) {
 
-            startingProductId=numberOfProductsPerRequest+startingProductId;
-
-            getMethods.updateProducts(this, productsList, numberOfProductsPerRequest ,startingProductId);
+            Log.d("Call", "Adapter " + startingProductId);
+            startingProductId = numberOfProductsPerRequest + startingProductId;
+            getMethods.updateProducts(this, productsList, numberOfProductsPerRequest, startingProductId);
         }
 
     }
 
     @Override
     public int getItemCount() {
-        if (productsList!=null) {
+        if (productsList != null) {
             return productsList.size();
-        }else {
+        } else {
             return 0;
         }
     }
@@ -115,14 +116,17 @@ public class ProductsRecyclerViewAdapter extends RecyclerView.Adapter<ProductsRe
         this.isOffline = isOffline;
     }
 
+    public void resetStartingProductId() {
+        startingProductId = 0;
+    }
+
     public void emptyList() {
         productsList.clear();
     }
 
 
     public void updateDatabase(ArrayList<Product> products) {
-        mContext.getContentResolver().delete(ProductProvider.Products.CONTENT_URI,null,null);
-        Log.d("Insert", "insert");
+        mContext.getContentResolver().delete(ProductProvider.Products.CONTENT_URI, null, null);
         ArrayList<ContentProviderOperation> batchOperations = new ArrayList<>(products.size());
 
         for (Product product : products) {

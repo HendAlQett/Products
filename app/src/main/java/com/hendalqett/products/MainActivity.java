@@ -33,9 +33,8 @@ public class MainActivity extends AppCompatActivity {
     final int mGridOrientation = StaggeredGridLayoutManager.VERTICAL;
     final int mNumberOfProductsPerRequest = 10;
     int mStartingProductId = 0;
-    boolean isLeavingActivity= false;
+    boolean isLeavingActivity = false;
     ProductsRecyclerViewAdapter mProductsRecyclerViewAdapter;
-
 
 
     ArrayList<Product> productsList;
@@ -53,21 +52,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         BusProvider.getInstance().post(new NetworkStateChanged(false));
-        productsList = new ArrayList<>();
+//        productsList = new ArrayList<>();
         setUpRecycler();
-        mProductsRecyclerViewAdapter = new ProductsRecyclerViewAdapter(this, productsList, mNumberOfProductsPerRequest, mStartingProductId);
-        recyclerView.setAdapter(mProductsRecyclerViewAdapter);
+//        mProductsRecyclerViewAdapter = new ProductsRecyclerViewAdapter(this, productsList, mNumberOfProductsPerRequest, mStartingProductId);
+//        recyclerView.setAdapter(mProductsRecyclerViewAdapter);
+        initializeAdapter();
 
-        mProductsRecyclerViewAdapter.SetOnItemClickListener(new ProductsRecyclerViewAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                isLeavingActivity = true;
-                Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
-                intent.putExtra(Keys.PRODUCT, productsList.get(position));
-                startActivity(intent);
-            }
-        });
-        getMethods= new GetMethods();
+
+        getMethods = new GetMethods();
     }
 
     @Override
@@ -86,50 +78,52 @@ public class MainActivity extends AppCompatActivity {
         BusProvider.getInstance().unregister(this);
 
     }
+
     @Subscribe
     public void onEventMainThread(NetworkStateChanged event) {
 
         if (!event.isInternetConnected()) {
             if (!isLeavingActivity) {
 
-                mProductsRecyclerViewAdapter.setIsOffline(true);
                 productsList.clear();
-                mProductsRecyclerViewAdapter.notifyDataSetChanged();
-//                Toast.makeText(this, "No Internet connection!", Toast.LENGTH_SHORT).show();
-                Cursor c = getContentResolver().query(ProductProvider.Products.CONTENT_URI,
+                mProductsRecyclerViewAdapter.setIsOffline(true);
+                Cursor cursor = getContentResolver().query(ProductProvider.Products.CONTENT_URI,
                         null, null, null, null);
-                if (c.getCount()!=0 && c!=null){
+                if (cursor.getCount() != 0 && cursor != null) {
 
-                    for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+                    int productId, productPrice;
+                    String productDescription;
+                    Image image;
+                    for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
 
-                        Image image = new Image(c.getString(c.getColumnIndex(ProductColumns.PRODUCT_IMAGE_URL)));
-                        Product product = new Product(c.getInt(c.getColumnIndex(ProductColumns.PRODUCT_ID)), c.getString(c.getColumnIndex(ProductColumns.PRODUCT_DESCRIPTION)), image, c.getInt(c.getColumnIndex(ProductColumns.PRODUCT_PRICE)));
+                        productId = cursor.getInt(cursor.getColumnIndex(ProductColumns.PRODUCT_ID));
+                        productDescription = cursor.getString(cursor.getColumnIndex(ProductColumns.PRODUCT_DESCRIPTION));
+                        image = new Image(cursor.getString(cursor.getColumnIndex(ProductColumns.PRODUCT_IMAGE_URL)));
+                        productPrice = cursor.getInt(cursor.getColumnIndex(ProductColumns.PRODUCT_PRICE));
+                        Product product = new Product(productId, productDescription, image, productPrice);
                         productsList.add(product);
                     }
 
-                    c.close();
+                    cursor.close();
                 }
 
                 mProductsRecyclerViewAdapter.notifyDataSetChanged();
-            }
-            else {
-                isLeavingActivity=false;
+
+            } else {
+                isLeavingActivity = false;
             }
 
         }
-        if (event.isInternetConnected() ) {
+        if (event.isInternetConnected()) {
             if (!isLeavingActivity) {
-
                 mProductsRecyclerViewAdapter.setIsOffline(false);
                 productsList.clear();
+                mStartingProductId = 0;
+                mProductsRecyclerViewAdapter.resetStartingProductId();
+                getMethods.updateProducts(mProductsRecyclerViewAdapter, productsList, mNumberOfProductsPerRequest, mStartingProductId);
 
-                getMethods.updateProducts(mProductsRecyclerViewAdapter,productsList,mNumberOfProductsPerRequest,mStartingProductId);
-//                Toast.makeText(this, "Connected!", Toast.LENGTH_SHORT).show();
-
-            }
-            else
-            {
-                isLeavingActivity=false;
+            } else {
+                isLeavingActivity = false;
             }
         }
     }
@@ -139,6 +133,21 @@ public class MainActivity extends AppCompatActivity {
         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(mNumberOfColumns, mGridOrientation);
         recyclerView.setLayoutManager(mStaggeredGridLayoutManager);
         recyclerView.setHasFixedSize(false);
+    }
+
+    void initializeAdapter() {
+        productsList = new ArrayList<>();
+        mProductsRecyclerViewAdapter = new ProductsRecyclerViewAdapter(this, productsList, mNumberOfProductsPerRequest, mStartingProductId);
+        recyclerView.setAdapter(mProductsRecyclerViewAdapter);
+        mProductsRecyclerViewAdapter.SetOnItemClickListener(new ProductsRecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                isLeavingActivity = true;
+                Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+                intent.putExtra(Keys.PRODUCT, productsList.get(position));
+                startActivity(intent);
+            }
+        });
     }
 
 }
