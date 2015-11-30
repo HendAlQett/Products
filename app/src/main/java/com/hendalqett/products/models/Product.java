@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 
 
-public class Product implements Parcelable{
+public class Product implements Parcelable {
 
     @SerializedName("id")
     int id;
@@ -60,13 +60,14 @@ public class Product implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(image,flags);
+        dest.writeParcelable(image, flags);
         dest.writeInt(id);
         dest.writeString(productDescription);
         dest.writeInt(price);
 
 
     }
+
     public static final Creator<Product> CREATOR = new Creator<Product>() {
         @Override
         public Product createFromParcel(Parcel in) {
@@ -93,7 +94,6 @@ public class Product implements Parcelable{
 
         price = in.readInt();
     }
-
 
 
 }

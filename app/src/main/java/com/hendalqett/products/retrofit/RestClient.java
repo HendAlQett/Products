@@ -23,13 +23,13 @@ public class RestClient {
         setupRestClient();
 
     }
+
     RestClient() {
     }
 
     public static Api get() {
         return REST_CLIENT;
     }
-
 
 
     private static void setupRestClient() {
