@@ -4,7 +4,7 @@ package com.hendalqett.products.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Image  implements Parcelable{
+public class Image implements Parcelable {
 
     String url;
 
@@ -43,10 +43,10 @@ public class Image  implements Parcelable{
     public int describeContents() {
         return 0;
     }
+
     protected Image(Parcel in) {
         url = in.readString();
     }
-
 
 
 }

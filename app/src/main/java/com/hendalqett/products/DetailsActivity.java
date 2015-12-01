@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hendalqett.products.constants.Keys;
 import com.hendalqett.products.models.Product;
 import com.squareup.picasso.Picasso;
 
@@ -35,7 +34,7 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         ButterKnife.bind(this);
         Intent intent = getIntent();
-        product = intent.getParcelableExtra(Keys.PRODUCT);
+        product = intent.getParcelableExtra(getString(R.string.product_key));
         toolbar.setTitle(getString(R.string.details_title));
 
         setSupportActionBar(toolbar);
