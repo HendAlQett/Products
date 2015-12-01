@@ -33,17 +33,7 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <receiver
-            android:enabled="true"
-            android:exported="true"
-            android:label="BR"
-            android:name="com.hendalqett.products.receivers.NetworkStateReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" > </action>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-            </intent-filter>
-        </receiver>
+
     </application>
 
 </manifest>
