@@ -51,13 +51,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         BusProvider.getInstance().post(new NetworkStateChanged(false));
-//        productsList = new ArrayList<>();
+
         setUpRecycler();
-//        mProductsRecyclerViewAdapter = new ProductsRecyclerViewAdapter(this, productsList, mNumberOfProductsPerRequest, mStartingProductId);
-//        recyclerView.setAdapter(mProductsRecyclerViewAdapter);
         initializeAdapter();
-
-
         getMethods = new GetMethods();
     }
 
